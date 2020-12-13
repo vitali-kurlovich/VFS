@@ -23,7 +23,7 @@ protocol RecordInfo: Equatable {
     init(id: ID, offset: Offset, size: Lenght, metaSize: MetaLenght, isDeleted: Bool)
 }
 
-internal
+public
 struct StoreRecordInfo<ID: BinaryInteger,
     Offset: BinaryInteger,
     Lenght: BinaryInteger,

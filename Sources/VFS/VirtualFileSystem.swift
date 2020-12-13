@@ -9,15 +9,18 @@ import Foundation
 
 import DispatchIOWrapper
 
+
 public
-final class VirtualFileSystem<Info: RecordInfo> {
+final class VirtualFileSystem<ID: BinaryInteger, Offset: BinaryInteger, Lenght: BinaryInteger, MetaLenght: BinaryInteger> {
     private let filePath: String
 
     public typealias Reader = FileAsyncReader
     public typealias Writer = FileAsyncWriter
-
+    
     private let dataBase = DataBase<Info, Writer, Reader>()
 
+    public typealias Info = StoreRecordInfo<ID, Offset, Lenght, MetaLenght>
+    
     public
     init(rootDir: String) {
         filePath = rootDir
